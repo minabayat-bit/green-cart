@@ -1,4 +1,10 @@
 @import "tailwindcss";
+
 body {
-  font-family:var(--font-Outfit-sans) ;
+  font-family: var(--font-Outfit-sans);
+  height: 100vh;
+}
+
+:root {
+  height: 100%;
 }
