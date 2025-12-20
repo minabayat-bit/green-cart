@@ -13,4 +13,4 @@ instance.interceptors.response.use((config) => {
   return config;
 });
 
-export default axios;
+export default instance;

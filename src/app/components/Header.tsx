@@ -1,7 +1,18 @@
+"use client";
+
+
+import { useModule } from '@/store/useModal'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation';
+
 import React from 'react'
 
 const Header = () => {
+
+    const { isOpen, setIsOpen } = useModule();
+    const router = useRouter();
+
+
   return (
     <div>
          <div className="py-4 px-32 flex justify-between items-center border-b border-gray-300">
@@ -17,7 +28,7 @@ const Header = () => {
             <Link href="/">Home</Link>
           </li>
           <li>
-            <Link href="">All Product</Link>
+            <Link href="./allproducts">All Product</Link>
           </li>
         </ul>
         <div className="flex gap-2 items-center border text-[14px] border-gray-300 text-gray-600 px-3 py-1 rounded-full">
@@ -35,7 +46,10 @@ const Header = () => {
             0
           </button>
         </div>
-        <button className="cursor-pointer px-8 py-2 bg-primary transition bg-primary-dull text-white rounded-full">
+        <button onClick={() => {
+            setIsOpen(true);
+            console.log(isOpen);
+          }} className="cursor-pointer px-8 py-2 bg-[#4fbf8b] transition  text-white rounded-full">
           Login
         </button>
       </div>

@@ -3,7 +3,7 @@ import Banner from "./UI/Banner";
 import Categories from "./UI/Categories";
 import Sellers from "./UI/Sellers";
 import Deal from "./UI/Deal";
-import Footer from "./UI/Footer";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (

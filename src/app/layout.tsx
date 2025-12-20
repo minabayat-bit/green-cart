@@ -3,6 +3,9 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
 import Provider from "./Provider";
+import Footer from "./components/Footer";
+
+import LoginRegister from "./components/LoginRegister";
 const OutfitSans = Outfit({
   variable: "--font-Outfit-sans",
   subsets: ["latin"],
@@ -20,8 +23,10 @@ export default function RootLayout({
       <body className={`${OutfitSans.variable} antialiased`}>
         <Header />
         <Provider>
+          <LoginRegister />
         {children}
         </Provider>
+        <Footer />
       </body>
     </html>
   );
