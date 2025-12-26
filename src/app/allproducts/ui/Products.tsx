@@ -7,6 +7,8 @@ import { TProductsResponse } from '@/app/UI/Sellers'
 
 
 const Products = () => {
+
+  
    
     const{data}=useQuery<TProductsResponse>({
         queryKey:["allProducts"],

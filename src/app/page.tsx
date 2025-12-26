@@ -10,7 +10,7 @@ export default function Home() {
     <div className="text-4xl">
       <Banner />
       <Categories />
-      <Sellers />
+     <Sellers />
       <Deal />
       <Footer />
     </div>

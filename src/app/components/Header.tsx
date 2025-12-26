@@ -46,6 +46,7 @@ const Header = () => {
             0
           </button>
         </div>
+       <Link href="/shopping">  <img src="/shop.svg" alt="" /></Link>
         <button onClick={() => {
             setIsOpen(true);
             console.log(isOpen);
