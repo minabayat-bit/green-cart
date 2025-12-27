@@ -1,7 +1,7 @@
-"use client"
+"use client";
 import { useQuery } from "@tanstack/react-query";
 import axios from "@/api/axios";
-import { useCartStore } from "@/store/cartStore";
+import { useCartStore } from "@/store/useCartStore";
 
 export type TProducts = {
   category: string;
@@ -59,10 +59,7 @@ function SellersItem({ product }: { product: TProducts }) {
           </div>
           <div className="flex items-center cursor-pointer justify-center gap-1 bg-[#e1fee2] border border-[#4fbf8b] px-4 py-1 rounded-sm">
             <img src="./buy.svg" alt="" />
-            <button
-              className="text-[15px]"
-              onClick={() => addToCart(product)}
-            >
+            <button className="text-[15px]" onClick={() => addToCart(product)}>
               Add
             </button>
           </div>

@@ -1,15 +1,13 @@
-"use client"
+"use client";
 
 import Products from "@/app/allproducts/ui/Products";
-import { useCartStore } from "@/store/cartStore";
+import { useCartStore } from "@/store/useCartStore";
 
 const ShoppingCart = () => {
-
- const { cart, removeFromCart, clearCart } = useCartStore();
+  const { cart, removeFromCart, clearCart } = useCartStore();
   const subtotal = cart.reduce((sum, item) => sum + item.price, 0);
   const tax = subtotal * 0.02;
   const total = subtotal + tax;
-
 
   return (
     <div className="bg-white min-h-screen flex justify-center py-10 px-4">
@@ -21,22 +19,29 @@ const ShoppingCart = () => {
               0 Items
             </span>
           </h1>
-          <div className="flex text-gray-600 font-semibold mb-6">
+          <div className="flex justify-around text-gray-600 font-semibold mb-6">
             <div className="w-2/3">Product Details</div>
             <div className="w-1/6 text-center">Subtotal</div>
             <div className="w-1/6 text-center">Action</div>
           </div>
-          
-           {cart.map((item) => (
-            <div key={item._id} className="flex text-gray-600 font-semibold mb-6">
-            <img src="" alt="" />
-            <div className="w-1/6 text-center">{item.price}</div>
-            <div onClick={() => removeFromCart(item._id)} className="w-1/6 text-center">clear</div>
-          </div>
-           ))
 
-           }
-          
+          {cart.map((item, index) => (
+            <div
+              key={`${item._id}-${index}`}
+              className="flex justify-around text-gray-600 font-semibold mb-6"
+            >
+              <img className="w-20" src={item.image?.[0]} alt="" />
+              
+              <div className="w-1/6 text-center">{item.price}</div>
+              <div
+                onClick={() => removeFromCart(item._id)}
+                className="w-1/6 text-center cursor-pointer"
+              >
+                clear
+              </div>
+            </div>
+          ))}
+
           <a
             href="#"
             className="text-green-600 inline-flex items-center gap-1 font-medium hover:underline"
@@ -87,7 +92,7 @@ const ShoppingCart = () => {
           <div className="border-t border-gray-300 pt-4 text-gray-700 space-y-2">
             <div className="flex justify-between text-sm">
               <span>Price</span>
-              <span>$0</span>
+              <span>${subtotal.toFixed(2)}</span>
             </div>
             <div className="flex justify-between text-green-600 text-sm font-medium">
               <span>Shipping Fee</span>
@@ -95,11 +100,11 @@ const ShoppingCart = () => {
             </div>
             <div className="flex justify-between text-sm">
               <span>Tax (2%)</span>
-              <span>$0</span>
+              <span>${tax.toFixed(2)}</span>
             </div>
             <div className="flex justify-between font-semibold text-lg mt-4">
               <span>Total Amount:</span>
-              <span>$0</span>
+              <span>${total.toFixed(2)}</span>
             </div>
           </div>
 
